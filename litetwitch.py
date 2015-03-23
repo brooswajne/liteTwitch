@@ -14,7 +14,8 @@ print('Reading config file...')
 # open config file
 try: configFile = open('config.cfg', 'r')
 except FileNotFoundError:
-    input('[ERROR] No config file found.')
+    open('config.cfg', 'w')
+    input('[ERROR] No config file was found. One has been created for you.')
     sys.exit()
 
 # default values
@@ -56,7 +57,6 @@ class App:
             self.streams = json.loads(urlopen(url, timeout=15).read().decode('utf-8'))
             print('\t[DONE]')
         except URLError as e:
-            # print error, stop fetching streams
             # TODO specific error messages for known errors such as "Unauthorized" if the token is wrong
             input('\t[ERROR] {}'.format(e.reason));
             sys.exit()
