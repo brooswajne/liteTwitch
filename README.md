@@ -35,3 +35,21 @@ Parameter | Argument(s) | Required? | Default Value
 token | <a href="#gettoken">Twitch API auth token</a> | Yes | N/A
 quality | [Livestreamer quality options](http://docs.livestreamer.io/cli.html#positional-arguments) | No | best
 chat | true/false | No | false
+
+An example config file would be the following:
+
+```
+token s1g709rbev45x6m779reachwo4ezel  
+quality worst  
+chat true
+```
+
+It is important to note that everytime you click the link to generate a new Twitch API authorization token, your previous one will become invalid and you will subsequently need to change it inside you `config.cfg` file.
+
+## Usage
+
+Run the `liteTwitch.py` file, either as an executable or through the command line using `python liteTwitch.py`. If you have set up everything correctly, you will be greeted with a window such as the one in the above screenshot which lists the streams you follows on Twitch which are currently online.
+
+Just click the *watch* button for any one stream to open a new livestreamer process for that stream. If you have set `chat true` in `config.cfg` then that channel's chat popup window should open in your browser.
+
+Anyone with your authorization token will be able to see your followed streams through this app, so try not to share it with people.
