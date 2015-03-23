@@ -57,7 +57,9 @@ class App:
             print('\t[DONE]')
         except URLError as e:
             # print error, stop fetching streams
-            print('\t[ERROR] {}'.format(e.reason));
+            # TODO specific error messages for known errors such as "Unauthorized" if the token is wrong
+            input('\t[ERROR] {}'.format(e.reason));
+            sys.exit()
         
     # draw a followed stream's name, game and status message to a specified row
     def drawStream(self, STREAM, ROW):
